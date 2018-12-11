@@ -29,11 +29,7 @@
   import ParticipantsList from "./ParticipantsList.vue";
   import NewParticipantForm from "./NewParticipantForm.vue";
 
-  mounted() {
-  this.$http.get('participants').then(response => {
-    this.people = response.body;
-  });
-  }
+
   export default {
     components: {ParticipantsList, NewParticipantForm},
     data() {
@@ -48,7 +44,12 @@
       removeParticipant(participant) {
         const index = this.people.indexOf(participant);
         this.people.splice(index, 1);
-      }
-    }
+      },
+    },
+      mounted() {
+  this.$http.get('participants').then(response => {
+    this.people = response.body;
+  });
+  }
   };
 </script>

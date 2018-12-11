@@ -51,5 +51,9 @@
     this.people = response.body;
   });
   }
+  this.$http.post('participants', newParticipantData).then(response => {
+  // add him
+})
+
   };
 </script>
